@@ -1,6 +1,36 @@
-<style></style>
 {% extends "mainLayout.html" %}{% load static %}{% block list%}
-<div>
-    
+<style>
+    #mainCont #backLink{
+        position: relative;
+        left: -10rem;
+        top: -1rem;
+    }
+    #mainCont svg{
+        width: 30px;
+    }
+</style>
+<div id='mainCont'>
+    <a id='backLink' href="{% url 'dashboard' %}">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path d="M512 256A256 256 0 1 0 0 256a256 256 0 1 0 512 0zM271 135c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-87 87 87 87c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0L167 273c-9.4-9.4-9.4-24.6 0-33.9L271 135z"/>
+        </svg>
+    </a><br>
+    <div id='locationsContainer'>
+        <ul style='width:300px; text-align:left;'>
+            {% for location in locationsData%}
+            <li><a href="{% url 'addArea' location.locationID %}">{{location.city}}</a></li>
+            {% endfor %}
+        </ul>
+        <a href=#>
+            <h3>Add Location</h3>
+        </a>
+    </div>
+    <form action='' method="POST">
+        {% csrf_token %}
+        {% for input in addForm %}
+            {{input.label}}{{input}}<br>
+        {% endfor %}
+        <input type='submit' value='Save' />
+    </form>
 </div>
 {% endblock %}
