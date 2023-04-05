@@ -6,26 +6,63 @@
         border-radius: 25px;
         padding: 31px 0px;
     }
-    .mainCont a{
+    .mainCont #backButton{
         position: relative;
-        left: -10rem;
-        top: -1rem;
+        left: -14rem;
+        top: 0rem;
     }
     .mainCont svg{
         width: 30px;
     }
+    .dataCont{
+        padding: 0px 100px;
+        text-align: left;
+    }
+    .logCont{
+        background-color: #d5d5d5;
+        border-radius: 6px;
+        height: 7rem;
+        padding: 2px 5px;
+        overflow: scroll;
+    }
+    .logCont ul{
+        margin: 5px auto;
+    }
+    .listGap{
+        margin-bottom: 7px;
+    }
 </style>
 <div class='mainCont'>
-    <a href="{% url 'addTree' locationID2 areaID2 %}">
+    <a id='backButton' href="{% url 'addTree' locationID areaID %}">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
             <path d="M512 256A256 256 0 1 0 0 256a256 256 0 1 0 512 0zM271 135c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-87 87 87 87c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0L167 273c-9.4-9.4-9.4-24.6 0-33.9L271 135z"/>
         </svg>
     </a><br>
-    Tree ID: {{treeData.locationID}}-{{treeData.areaID}}-{{treeData.treeID}}<br><br>
-    Root Stock: {{treeData.rootStock}}<br><br>
-    Zion Type: {{treeData.zionType}}<br><br>
-    Date Planted: {{treeData.datePlanted}}<br><br>
-    Notes: <br><br>
-    Logs:
+    <div style='margin-top: -46px; margin-bottom: 25px;'>
+        <img src="{% static 'images/tree.jpeg' %}" />
+    </div>
+    <div class='dataCont'>
+        <b>Tree ID:</b> {{treeData.locationID}}-{{treeData.areaID}}-{{treeData.treeID}}<br><br>
+        <b>Root Stock:</b> {{treeData.rootStock}}<br><br>
+        <b>Zion Type:</b> {{treeData.zionType}}<br><br>
+        <b>Date Planted:</b> {{treeData.datePlanted}}<br><br>
+        <b>Notes:</b> <br><br>
+        <b>Logs:</b> <br>
+        <div class='logCont'>
+            <ul>
+            {% for log in treeLogs %}
+                <li class='listGap'>
+                    <a href="{% url 'treeLog' locationID areaID treeID log.id%}">
+                        {{log}}
+                    </a>
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+        <center>
+            <a href="{% url 'treeLog' locationID areaID treeID 'all' %}">see all</a><br><br>
+            <a class='linkStyleRemove' href="{% url 'addLog' locationID areaID treeID %}"><div class='primButton'>Add Log</div></a>
+        </center>
+    </div>
 </div>
 {% endblock %}

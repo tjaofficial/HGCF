@@ -45,7 +45,7 @@ class treeLogs_model(models.Model):
     note = models.CharField(max_length=10000)
     category = models.ForeignKey(logCategory_model, on_delete=models.CASCADE)
     def __str__(self):
-        return self.category.name + self.treeID.treeID
+        return self.treeID.treeID + ' - ' + self.category.name + ' - ' + str(self.date) + '-' + str(self.time)
     
 
     

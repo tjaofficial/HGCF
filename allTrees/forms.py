@@ -55,7 +55,7 @@ class treeLogs_form(ModelForm):
         widgets = {
             'treeID': forms.TextInput(),
             'date': forms.DateInput(attrs={'type':'date'}),
-            'time': forms.TimeInput(),
+            'time': forms.TimeInput(attrs={'type':'time'}),
             'note': forms.TextInput(),
             'category': forms.Select(),
         }
