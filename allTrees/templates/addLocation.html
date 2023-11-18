@@ -1,0 +1,41 @@
+{% extends "mainLayout.html" %}{% load static %}{% block list%}
+<link href="{% static 'style/pageSetup.css' %}" rel="stylesheet" />
+<link href="{% static 'style/addCards.css' %}" rel="stylesheet" />
+<link href="{% static 'style/backArrow.css' %}" rel="stylesheet" />
+<script defer src="{% static 'script/hideAddContainer.js' %}"></script>
+{% include "components/spacer.html" %}
+<div id='mainCont'>
+   {% include "components/backArrow.html" %}
+    <div class="addCont catCont" id='locationsContainer' style="margin: auto;">
+        List of Locations:
+        <ul style='width:300px; text-align:left;'>
+            {% for location in locationsData%}
+            <li>
+                <a href="{% url 'addArea' location.locationID %}">
+                    {{location.city}}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <a id="addLink" href=# onclick="showAddElem(locationForm)">
+        <h3>Add Location</h3>
+    </a>
+    <form id="locationForm" class="addCont" action='' method="POST" style="display:none;">
+        {% csrf_token %}
+        {{addForm.locationID.label}}<br>
+        <input type="text" name="locationID" value="{{newID}}"/> <br>
+        {{addForm.name.label}}<br>
+        {{addForm.name}}<br>
+        {{addForm.address.label}}<br>
+        {{addForm.address}}<br>
+        {{addForm.city.label}}<br>
+        {{addForm.city}}<br>
+        {{addForm.state.label}}<br>
+        {{addForm.state}}<br>
+        {{addForm.dateEst.label}}<br>
+        {{addForm.dateEst}}<br>
+        <input type='submit' value='Save' />
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+.cropped {
+    width: 1205px;
+    height: 20rem;
+    text-align: center;
+    overflow: hidden;
+    margin: auto;
+}
+
+.cropped img {
+    margin: -15rem 0px 0px 0px;
+    width: 1205px;
+}

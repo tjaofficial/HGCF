@@ -1,0 +1,65 @@
+{% extends "mainLayout.html" %}{% load static %}{% block list%}
+<style>
+    .mainCont{
+        background-color: white;
+        width: 33rem;
+        border-radius: 25px;
+        padding: 31px 0px;
+        margin: auto;
+    }
+    .dataCont{
+        padding: 0px 100px;
+        text-align: left;
+    }
+    .logCont{
+        background-color: #d5d5d5;
+        border-radius: 6px;
+        height: 10rem;
+        padding: 2px 5px;
+        overflow: scroll;
+    }
+    .logCont ul{
+        margin: 5px auto;
+    }
+    .listGap{
+        margin-bottom: 7px;
+    }
+</style>
+<link href="{% static 'style/pageSetup.css' %}" rel="stylesheet" />
+<link href="{% static 'style/backArrow.css' %}" rel="stylesheet" />
+{% include "components/spacer.html" %}
+<div class='mainCont'>
+    {% include "components/backArrow.html" %}
+    <div style='margin-top: -46px; margin-bottom: 25px;'>
+        <img src="{% static 'images/tree.jpeg' %}" />
+    </div>
+    <div class='dataCont'>
+        <b>Tree ID:</b>{{slts_qrcode}} {{treeData.locationID}}-{{treeData.areaID}}-{{treeData.treeID}}<br><br>
+        <b>Root Stock:</b> {{treeData.rootStock}}<br><br>
+        <b>Zion Type:</b> {{treeData.zionType}}<br><br>
+        <b>Date Planted:</b> {{treeData.datePlanted}}<br><br>
+        <b>Notes:</b> <br><br>
+        <b>Logs:</b> <br>
+        <div class='logCont'>
+            <ul>
+            {% for log in treeLogs %}
+                <li class='listGap'>
+                    <a href="{% url 'treeLog' locationID areaID treeID log.id%}">
+                        {{log}}
+                    </a>
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+        <center>
+            <a href="{% url 'treeLog' locationID areaID treeID 'all' %}">see all</a><br><br>
+            <div>
+                <p>Assigned QR Code</p>
+                <img src="{{treeQrCode.qr_code.url}}"><br>
+            </div>
+            <br><br>
+            <a class='linkStyleRemove' href="{% url 'addLog' locationID areaID treeID %}"><div class='primButton'>Add Log</div></a>
+        </center>
+    </div>
+</div>
+{% endblock %}

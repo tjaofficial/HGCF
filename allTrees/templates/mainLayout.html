@@ -1,0 +1,13 @@
+{% load static %}
+<link href="{% static 'style/layout.css' %}" rel="stylesheet" />
+<script defer src="{% static 'script/header.js' %}"></script>
+<body>
+    {% include "components/header.html" %}
+    <div class="insideBody">
+        <div id="layoutDataContainer">
+            {% block list %}
+            
+            {% endblock %}
+        </div>
+    </div>
+</body>

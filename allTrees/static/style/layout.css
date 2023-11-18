@@ -1,0 +1,28 @@
+body{
+    background-color: #619f63;
+    margin: 0;
+}
+.primButton{
+    background-color: #ffa9a9;
+    margin: auto;
+    padding: 10px;
+    width: 120px;
+    border-radius: 9px;
+    box-shadow: 5px 5px 4px -6px;
+}
+.linkStyleRemove{
+    color: black;
+    text-decoration: none;
+}
+input{
+    position: relative;
+    margin: auto;
+    width: 50%;
+    max-width: 280px;
+    border-radius: 3px;
+    overflow: hidden;
+    text-align: center;
+}
+.insideBody{
+    
+}

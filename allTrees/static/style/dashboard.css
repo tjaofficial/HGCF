@@ -1,0 +1,19 @@
+.tiles{
+    background-color: white;
+    width: 250px;
+    height: 250px;
+    border-radius: 35px;
+    margin: 1rem;
+    text-align: center;
+}
+.tileCont{
+    margin: auto;
+    width: min-content;
+}
+.flexIt{
+    display: flex;
+}
+.tiles svg{
+    padding: 14px 0px;
+    width: 110px;
+}
