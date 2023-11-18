@@ -1,8 +1,11 @@
 from django import forms
 from django.forms import ModelForm
 from .models import *
+<<<<<<< HEAD
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+=======
+>>>>>>> 7aa6b663ee8dc078e4be5be585a0156e634083f2
 
 class individualTrees_form(ModelForm):
     class Meta:
@@ -60,6 +63,7 @@ class treeLogs_form(ModelForm):
             'time': forms.TimeInput(attrs={'type':'time'}),
             'note': forms.TextInput(),
             'category': forms.Select(),
+<<<<<<< HEAD
         }
 
 class CreateUserForm(UserCreationForm):
@@ -76,4 +80,6 @@ class CreateUserForm(UserCreationForm):
             'password2': forms.PasswordInput(attrs={'placeholder': 'Confirm Password'}),
             'first_name': forms.TextInput(attrs={'placeholder': 'First Name'}),
             'last_name': forms.TextInput(attrs={'placeholder': 'Last Name'}),
+=======
+>>>>>>> 7aa6b663ee8dc078e4be5be585a0156e634083f2
         }

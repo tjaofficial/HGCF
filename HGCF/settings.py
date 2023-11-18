@@ -26,7 +26,16 @@ SECRET_KEY = 'django-insecure-x+ammh&35wvmp_d#p+oah(vplc=l3s9_j^=i-t41!16%(dncd2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+<<<<<<< HEAD
 ALLOWED_HOSTS = []
+=======
+ALLOWED_HOSTS = [
+    '3.14.125.156', 
+    'localhost', 
+    'heavensgatescherryfarm.com',
+    'www.heavensgatescherryfarm.com'
+]
+>>>>>>> 7aa6b663ee8dc078e4be5be585a0156e634083f2
 
 
 # Application definition
@@ -77,8 +86,17 @@ WSGI_APPLICATION = 'HGCF.wsgi.application'
 
 DATABASES = {
     'default': {
+<<<<<<< HEAD
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+=======
+        "ENGINE": os.environ.get("SQL_ENGINE", "django.db.backends.sqlite3"),
+        "NAME": os.environ.get("SQL_DATABASE", BASE_DIR / "db.sqlite3"),
+        "USER": os.environ.get("SQL_USER", "user"),
+        "PASSWORD": os.environ.get("SQL_PASSWORD", "password"),
+        "HOST": os.environ.get("SQL_HOST", "localhost"),
+        "PORT": os.environ.get("SQL_PORT", "5432"),
+>>>>>>> 7aa6b663ee8dc078e4be5be585a0156e634083f2
     }
 }
 
@@ -118,9 +136,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+<<<<<<< HEAD
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(os.path.dirname(
     BASE_DIR), "media_root")
+=======
+import os
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+>>>>>>> 7aa6b663ee8dc078e4be5be585a0156e634083f2
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
