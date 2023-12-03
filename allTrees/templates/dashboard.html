@@ -1,28 +1,5 @@
 {% extends "mainLayout.html" %}{% load static %}{% block list%}
-<<<<<<< HEAD
 <link href="{% static 'style/dashboard.css' %}" rel="stylesheet" />
-=======
-<style>
-    .tiles{
-        background-color: white;
-        width: 250px;
-        height: 250px;
-        border-radius: 35px;
-        margin: 1rem;
-    }
-    .tileCont{
-        margin: auto;
-        width: min-content;
-    }
-    .flexIt{
-        display: flex;
-    }
-    .tiles svg{
-        padding: 14px 0px;
-        width: 110px;
-    }
-</style>
->>>>>>> 7aa6b663ee8dc078e4be5be585a0156e634083f2
 <div class="tileCont">
     <div class="flexIt">
         <div class="tiles">
@@ -34,20 +11,12 @@
             </a>
         </div>
         <div class="tiles">
-<<<<<<< HEAD
             <a href=#>
                 <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 640 512">
                     <path d="M0 336c0 79.5 64.5 144 144 144H512c70.7 0 128-57.3 128-128c0-61.9-44-113.6-102.4-125.4c4.1-10.7 6.4-22.4 6.4-34.6c0-53-43-96-96-96c-19.7 0-38.1 6-53.3 16.2C367 64.2 315.3 32 256 32C167.6 32 96 103.6 96 192c0 2.7 .1 5.4 .2 8.1C40.2 219.8 0 273.2 0 336z"/>
                 </svg>
                 <h2>Weather</h2>
             </a>
-=======
-            <a href=#>Add New Tree</a>
-            <h3 style="padding-top: 25px;">List of Trees</h3>
-            {% for tree in treeData %}
-                <a href="">{{treeID}}</a>
-            {% endfor %}
->>>>>>> 7aa6b663ee8dc078e4be5be585a0156e634083f2
         </div>
     </div>
     <div class="flexIt">

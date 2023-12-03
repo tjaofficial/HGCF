@@ -1,0 +1,41 @@
+{% extends "mainLayout.html" %}{% load static %}{% block list%}
+<link href="{% static 'style/pageSetup.css' %}" rel="stylesheet" />
+<link href="{% static 'style/addCards.css' %}" rel="stylesheet" />
+<link href="{% static 'style/backArrow.css' %}" rel="stylesheet" />
+<script defer src="{% static 'script/hideAddContainer.js' %}"></script>
+{% include "components/spacer.html" %}
+<div id='mainCont'>
+    {% include "components/backArrow.html" %}
+    <div class="addCont catCont" id='areasContainer'>
+        List of Area:
+        {% if areasData|length > 0 %}
+            <ul style='width:300px; text-align:left;'>
+                {% for area in areasData%}
+                <li><a href="{% url 'addTree' locationID area.areaID %}">{{area.areaID}}-{{area.name}}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p style="text-align: center;">- No areas added -</p>
+        {% endif %}
+    </div>
+    <a id="addLink" href=# onclick="showAddElem(areaForm)">
+        <h3>Add Area</h3>
+    </a>
+    <form id="areaForm" class="addCont" action='' method="POST" style="display:none;">
+        {% csrf_token %}
+        {{addForm.areaID.label}}<br>
+        <input type="text" name="areaID" value="{% if areasData|length > 0 %}{{newID}}{% else %}001{% endif %}"/> <br>
+        {{addForm.locationID.label}}<br>
+        <input type="text" name="locationID" value="{{location.locationID}}"/><br>
+        {{addForm.name.label}}<br>
+        {{addForm.name}}<br>
+        {{addForm.widthByTree.label}}<br>
+        {{addForm.widthByTree}}<br>
+        {{addForm.lengthByTree.label}}<br>
+        {{addForm.lengthByTree}}<br>
+        {{addForm.dateEst.label}}<br>
+        {{addForm.dateEst}}<br>
+        <input type='submit' value='Save' />
+    </form>
+</div>
+{% endblock %}

@@ -1,13 +1,9 @@
 from django.db import models
-<<<<<<< HEAD
 from django.contrib.auth.models import User
 import qrcode
 from io import BytesIO
 from django.core.files import File
 from PIL import Image, ImageDraw
-=======
-
->>>>>>> 7aa6b663ee8dc078e4be5be585a0156e634083f2
 # Create your models here.
     
 class locationTree_model(models.Model):
@@ -56,7 +52,6 @@ class treeLogs_model(models.Model):
         return self.treeID.treeID + ' - ' + self.category.name + ' - ' + str(self.date) + '-' + str(self.time)
     
 
-<<<<<<< HEAD
 class tree_qr(models.Model):
     treeID = models.OneToOneField(
         individualTrees_model,
@@ -80,6 +75,3 @@ class tree_qr(models.Model):
         self.qr_code.save(fname, File(buffer), save=False)
         canvas.close()
         super().save(*args,**kwargs)
-=======
-    
->>>>>>> 7aa6b663ee8dc078e4be5be585a0156e634083f2

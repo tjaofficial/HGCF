@@ -15,18 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-<<<<<<< HEAD
 from django.conf import settings
 from django.conf.urls.static import static
-=======
->>>>>>> 7aa6b663ee8dc078e4be5be585a0156e634083f2
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include('allTrees.urls')),
 ]
-<<<<<<< HEAD
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-=======
->>>>>>> 7aa6b663ee8dc078e4be5be585a0156e634083f2

@@ -5,31 +5,17 @@
         width: 33rem;
         border-radius: 25px;
         padding: 31px 0px;
-<<<<<<< HEAD
         margin: auto;
-=======
-    }
-    .mainCont #backButton{
-        position: relative;
-        left: -14rem;
-        top: 0rem;
-    }
-    .mainCont svg{
-        width: 30px;
->>>>>>> 7aa6b663ee8dc078e4be5be585a0156e634083f2
+        margin-bottom: 3rem;
     }
     .dataCont{
-        padding: 0px 100px;
+        padding: 0px 80px;
         text-align: left;
     }
     .logCont{
         background-color: #d5d5d5;
         border-radius: 6px;
-<<<<<<< HEAD
         height: 10rem;
-=======
-        height: 7rem;
->>>>>>> 7aa6b663ee8dc078e4be5be585a0156e634083f2
         padding: 2px 5px;
         overflow: scroll;
     }
@@ -40,29 +26,16 @@
         margin-bottom: 7px;
     }
 </style>
-<<<<<<< HEAD
 <link href="{% static 'style/pageSetup.css' %}" rel="stylesheet" />
 <link href="{% static 'style/backArrow.css' %}" rel="stylesheet" />
 {% include "components/spacer.html" %}
 <div class='mainCont'>
-    {% include "components/backArrow.html" %}
-=======
-<div class='mainCont'>
-    <a id='backButton' href="{% url 'addTree' locationID areaID %}">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-            <path d="M512 256A256 256 0 1 0 0 256a256 256 0 1 0 512 0zM271 135c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-87 87 87 87c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0L167 273c-9.4-9.4-9.4-24.6 0-33.9L271 135z"/>
-        </svg>
-    </a><br>
->>>>>>> 7aa6b663ee8dc078e4be5be585a0156e634083f2
-    <div style='margin-top: -46px; margin-bottom: 25px;'>
+    {% include "components/backArrow.html" with destination="tree" %}
+    <div style='margin-top: -46px; margin-bottom: 25px;text-align: center;'>
         <img src="{% static 'images/tree.jpeg' %}" />
     </div>
     <div class='dataCont'>
-<<<<<<< HEAD
         <b>Tree ID:</b>{{slts_qrcode}} {{treeData.locationID}}-{{treeData.areaID}}-{{treeData.treeID}}<br><br>
-=======
-        <b>Tree ID:</b> {{treeData.locationID}}-{{treeData.areaID}}-{{treeData.treeID}}<br><br>
->>>>>>> 7aa6b663ee8dc078e4be5be585a0156e634083f2
         <b>Root Stock:</b> {{treeData.rootStock}}<br><br>
         <b>Zion Type:</b> {{treeData.zionType}}<br><br>
         <b>Date Planted:</b> {{treeData.datePlanted}}<br><br>
@@ -81,15 +54,12 @@
         </div>
         <center>
             <a href="{% url 'treeLog' locationID areaID treeID 'all' %}">see all</a><br><br>
-<<<<<<< HEAD
             <div>
                 <p>Assigned QR Code</p>
-                <img src="{{treeQrCode.qr_code.url}}"><br>
+                <img src="{{treeQrCode.qr_code.url}}">
             </div>
-            <br><br>
-=======
->>>>>>> 7aa6b663ee8dc078e4be5be585a0156e634083f2
             <a class='linkStyleRemove' href="{% url 'addLog' locationID areaID treeID %}"><div class='primButton'>Add Log</div></a>
+            <br>
         </center>
     </div>
 </div>

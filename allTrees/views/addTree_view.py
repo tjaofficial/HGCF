@@ -43,5 +43,14 @@ def addTree_view(request, locationID2, areaID2):
     if request.method == "POST":
         print('post')
     return render(request, 'addTree.html', {
-        'columnRange': columnRange, 'rowList': rowList, 'addForm': addForm, 'treeData': treeData, 'locationID': locationID2, 'areaID': areaID2, 'gridWidth': gridWidth, 'gridlength': gridlength, 'treeList': treeList, 'gridRange': range(1,((gridlength*gridWidth)+1))
+        'columnRange': columnRange, 
+        'rowList': rowList, 
+        'addForm': addForm, 
+        'treeData': treeData, 
+        'locationID': locationID2, 
+        'areaID': areaID2, 
+        'gridWidth': gridWidth, 
+        'gridlength': gridlength, 
+        'treeList': treeList, 
+        'gridRange': range(1,((gridlength*gridWidth)+1))
     })
