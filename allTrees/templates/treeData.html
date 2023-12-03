@@ -2,7 +2,7 @@
 <style>
     .mainCont{
         background-color: white;
-        width: 33rem;
+        width: 37rem;
         border-radius: 25px;
         padding: 31px 0px;
         margin: auto;
@@ -28,39 +28,42 @@
 </style>
 <link href="{% static 'style/pageSetup.css' %}" rel="stylesheet" />
 <link href="{% static 'style/backArrow.css' %}" rel="stylesheet" />
+<link href="{% static 'style/addCards.css' %}" rel="stylesheet" />
 {% include "components/spacer.html" %}
 <div class='mainCont'>
-    {% include "components/backArrow.html" with destination="tree" %}
-    <div style='margin-top: -46px; margin-bottom: 25px;text-align: center;'>
-        <img src="{% static 'images/tree.jpeg' %}" />
-    </div>
-    <div class='dataCont'>
-        <b>Tree ID:</b>{{slts_qrcode}} {{treeData.locationID}}-{{treeData.areaID}}-{{treeData.treeID}}<br><br>
-        <b>Root Stock:</b> {{treeData.rootStock}}<br><br>
-        <b>Zion Type:</b> {{treeData.zionType}}<br><br>
-        <b>Date Planted:</b> {{treeData.datePlanted}}<br><br>
-        <b>Notes:</b> <br><br>
-        <b>Logs:</b> <br>
-        <div class='logCont'>
-            <ul>
-            {% for log in treeLogs %}
-                <li class='listGap'>
-                    <a href="{% url 'treeLog' locationID areaID treeID log.id%}">
-                        {{log}}
-                    </a>
-                </li>
-            {% endfor %}
-            </ul>
+    <div class="treeCont">
+        {% include "components/backArrow.html" with destination="tree" %}
+        <div style='margin-top: -46px; margin-bottom: 25px;text-align: center;'>
+            <img src="{% static 'images/tree.jpeg' %}" />
         </div>
-        <center>
-            <a href="{% url 'treeLog' locationID areaID treeID 'all' %}">see all</a><br><br>
-            <div>
-                <p>Assigned QR Code</p>
-                <img src="{{treeQrCode.qr_code.url}}">
+        <div class='dataCont'>
+            <b>Tree ID:</b>{{slts_qrcode}} {{treeData.locationID}}-{{treeData.areaID}}-{{treeData.treeID}}<br><br>
+            <b>Root Stock:</b> {{treeData.rootStock}}<br><br>
+            <b>Zion Type:</b> {{treeData.zionType}}<br><br>
+            <b>Date Planted:</b> {{treeData.datePlanted}}<br><br>
+            <b>Notes:</b> <br><br>
+            <b>Logs:</b> <br>
+            <div class='logCont'>
+                <ul>
+                    {% for log in treeLogs %}
+                    <li class='listGap'>
+                        <a href="{% url 'treeLog' locationID areaID treeID log.id%}">
+                            {{log}}
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
             </div>
-            <a class='linkStyleRemove' href="{% url 'addLog' locationID areaID treeID %}"><div class='primButton'>Add Log</div></a>
-            <br>
-        </center>
+            <center>
+                <a href="{% url 'treeLog' locationID areaID treeID 'all' %}">see all</a><br><br>
+                <div>
+                    <p>Assigned QR Code</p>
+                    <img src="{{treeQrCode.qr_code.url}}">
+                </div>
+                <a class='linkStyleRemove' href="{% url 'addLog' locationID areaID treeID %}"><div class='primButton'>Add Log</div></a>
+                <br>
+            </center>
+        </div>
     </div>
 </div>
 {% endblock %}

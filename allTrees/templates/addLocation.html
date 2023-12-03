@@ -5,18 +5,20 @@
 <script defer src="{% static 'script/hideAddContainer.js' %}"></script>
 {% include "components/spacer.html" %}
 <div id='mainCont'>
-   {% include "components/backArrow.html" %}
-    <div class="addCont catCont" id='locationsContainer' style="margin: auto;">
-        List of Locations:
-        <ul style='width:300px; text-align:left;'>
-            {% for location in locationsData%}
-            <li>
-                <a href="{% url 'addArea' location.locationID %}">
-                    {{location.city}}
-                </a>
-            </li>
-            {% endfor %}
-        </ul>
+    <div class="addCont" id='locationsContainer' style="margin: auto;">
+        {% include "components/backArrow.html" with destination="dashboard" %}
+        <div class="catCont">
+            List of Locations:
+            <ul style='width:300px; text-align:left;'>
+                {% for location in locationsData%}
+                <li>
+                    <a href="{% url 'addArea' location.locationID %}">
+                        {{location.city}}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
     <a id="addLink" href=# onclick="showAddElem(locationForm)">
         <h3>Add Location</h3>

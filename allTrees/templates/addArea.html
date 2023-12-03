@@ -5,18 +5,20 @@
 <script defer src="{% static 'script/hideAddContainer.js' %}"></script>
 {% include "components/spacer.html" %}
 <div id='mainCont'>
-    {% include "components/backArrow.html" %}
-    <div class="addCont catCont" id='areasContainer'>
-        List of Area:
-        {% if areasData|length > 0 %}
-            <ul style='width:300px; text-align:left;'>
-                {% for area in areasData%}
-                <li><a href="{% url 'addTree' locationID area.areaID %}">{{area.areaID}}-{{area.name}}</a></li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p style="text-align: center;">- No areas added -</p>
-        {% endif %}
+    <div class="addCont" id='areasContainer'>
+        {% include "components/backArrow.html" with destination="location" %}
+        <div class="catCont">
+            List of Area:
+            {% if areasData|length > 0 %}
+                <ul style='width:300px; text-align:left;'>
+                    {% for area in areasData%}
+                    <li><a href="{% url 'addTree' locationID area.areaID %}">{{area.areaID}}-{{area.name}}</a></li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p style="text-align: center;">- No areas added -</p>
+            {% endif %}
+        </div>
     </div>
     <a id="addLink" href=# onclick="showAddElem(areaForm)">
         <h3>Add Area</h3>
