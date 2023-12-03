@@ -1,13 +1,21 @@
 {% load static %}
-<link href="{% static 'style/layout.css' %}" rel="stylesheet" />
-<script defer src="{% static 'script/header.js' %}"></script>
-<body>
-    {% include "components/header.html" %}
-    <div class="insideBody">
-        <div id="layoutDataContainer">
-            {% block list %}
-            
-            {% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="{% static 'style/layout.css' %}" rel="stylesheet" />
+        <script defer src="{% static 'script/header.js' %}"></script>
+        <title>Heaven's Gates Cherry Farm</title>
+    </head>
+    <body>
+        {% include "components/header.html" %}
+        <div class="insideBody">
+            <div id="layoutDataContainer">
+                {% block list %}
+                
+                {% endblock %}
+            </div>
         </div>
-    </div>
-</body>
+    </body>
+</html>

@@ -1,9 +1,11 @@
 {% extends "mainLayout.html" %}{% load static %}{% block list%}
 <link href="{% static 'style/pageSetup.css' %}" rel="stylesheet" />
 <link href="{% static 'style/homePage.css' %}" rel="stylesheet" />
-<div class='mainCont'>
-    <div class="cropped">
-        <img id='bannerPhoto' src="{% static 'images/HGCFsign.jpg' %}"/>
+<!-- <div class='mainCont'>
+    <div class="">
+        <div class="cropped">
+            <img id='bannerPhoto' src="{% static 'images/HGCFsign.jpg' %}"/>
+        </div>
     </div>
     <div class="description">
         <h2>Welcome to Heavens Gates Cherry Farm</h2>
@@ -12,5 +14,54 @@
     <div class="">
 
     </div>
-</div>
+</div> -->
+<script defer src="{% static 'script/slideshow.js' %}"></script>
+  <header>
+    <h1>Welcome to Heaven's Gates Cherry Farm</h1>
+  </header>
+
+  <div class="slideshow-container">
+      <div class="mySlides fade">
+        <div class="crop">
+            <img src="{% static 'images/HGCFsign.jpg' %}" alt="Slide 1">
+        </div>
+      </div>
+  
+      <div class="mySlides fade">
+        <div class="crop">
+            <img src="{% static 'images/HGCFFlower.jpg' %}" alt="Slide 2">
+        </div>
+      </div>
+  
+      <div class="mySlides fade">
+        <div class="crop">
+            <img src="{% static 'images/HGCFsign (2).jpg' %}" alt="Slide 3">
+        </div>
+      </div>
+  
+      <!-- Add more slides as needed -->
+  
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+  <main>
+    
+    <section id="home">
+      <h2>Home</h2>
+      <p>Discover the goodness of fresh, organic cherries and more at Heaven's Gates Cherry Farm.</p>
+    </section>
+
+    <section id="about">
+      <h2>About Us</h2>
+      <p>Welcome to Heaven's Gates Cherry Farm, where we cultivate the finest cherries and a variety of other fruits.</p>
+      <!-- Add more about us content as needed -->
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Heaven's Gates Cherry Farm</p>
+  </footer>
+
+  <script src="script.js"></script>
+
 {% endblock %}
