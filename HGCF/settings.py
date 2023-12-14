@@ -28,11 +28,12 @@ DEBUG = True
 
 
 ALLOWED_HOSTS = [
-    '127.0.0.1',
-    '3.14.125.156', 
-    'localhost', 
-    'heavensgatescherryfarm.com',
-    'www.heavensgatescherryfarm.com'
+    '*'
+    # '127.0.0.1',
+    # '3.14.125.156', 
+    # 'localhost', 
+    # 'heavensgatescherryfarm.com',
+    # 'www.heavensgatescherryfarm.com'
 ]
 
 
