@@ -77,15 +77,6 @@
     padding: 20px;
   }
   
-  footer {
-    background-color: #4CAF50;
-    color: white;
-    text-align: center;
-    padding: 1em;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
   
   .crop {
     width: 100%;
