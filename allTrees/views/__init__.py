@@ -6,3 +6,5 @@ from .treeData_view import treeData2_view, treeLog_view
 from .addLog_view import *
 from .treeSpace_login_view import *
 from .home_view import *
+from .joyces_kitchen_view import *
+from .environmental_view import *

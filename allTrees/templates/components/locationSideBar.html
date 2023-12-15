@@ -1,0 +1,15 @@
+{% load static %}
+<link href="{% static 'style/locationColumn.css' %}" rel="stylesheet" />
+<div class="locationColumn">
+    <div class="headerSpacer"></div>
+    <div class="locationHeader">Locations:</div>
+    <ul style="margin-top: 2px;">
+        {% for location in locationsData%}
+        <li>
+            <a href="{% url 'addArea' location.locationID %}">
+                {{location.city}}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>

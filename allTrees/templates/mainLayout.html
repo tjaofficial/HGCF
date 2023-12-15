@@ -10,6 +10,8 @@
     </head>
     <body>
         {% include "components/header.html" %}
+        {% if sideBar %}{% include "components/sideBar.html" %}{% endif %}
+        {% comment %} <div class="bigHeaderSpacer"></div>  {% endcomment %}
         <div class="insideBody">
             <div id="layoutDataContainer">
                 {% block list %}

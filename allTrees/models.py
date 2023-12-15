@@ -5,7 +5,21 @@ from io import BytesIO
 from django.core.files import File
 from PIL import Image, ImageDraw
 # Create your models here.
-    
+
+meal_type_choices = (
+    ('dessert', 'Dessert'),
+    ('dinner-main', 'Dinner - Main'),
+    ('dinner-side', 'Dinner - Side'),
+    ('breakfast', 'Breakfast'),
+    ('lunch', 'Lunch'),
+    ('brunch', 'Brunch'),
+    ('quick snack', 'Quick Snack'),
+)    
+yes_no_choice = (
+    ("yes","Yes"),
+    ("no","No"),
+)
+
 class locationTree_model(models.Model):
     locationID = models.CharField(max_length=10)
     name = models.CharField(max_length=10, blank=True, null=True)
@@ -24,7 +38,7 @@ class areaTree_model(models.Model):
     lengthByTree = models.IntegerField()
     dateEst = models.DateField(auto_now=False, auto_now_add=False)
     def __str__(self):
-        return self.areaID
+        return str(self.locationID) + " - " + str(self.areaID)
 
 class individualTrees_model(models.Model):
     treeID = models.CharField(max_length=20)
@@ -34,7 +48,7 @@ class individualTrees_model(models.Model):
     zionType = models.CharField(max_length=10)
     datePlanted = models.DateField(auto_now=False, auto_now_add=False)
     def __str__(self):
-        return self.treeID
+        return str(self.locationID) + " - " + str(self.areaID.areaID) + " - " + str(self.treeID)
 
 class logCategory_model(models.Model):
     name = models.CharField(max_length=25)
@@ -51,7 +65,6 @@ class treeLogs_model(models.Model):
     def __str__(self):
         return self.treeID.treeID + ' - ' + self.category.name + ' - ' + str(self.date) + '-' + str(self.time)
     
-
 class tree_qr(models.Model):
     treeID = models.OneToOneField(
         individualTrees_model,
@@ -75,3 +88,29 @@ class tree_qr(models.Model):
         self.qr_code.save(fname, File(buffer), save=False)
         canvas.close()
         super().save(*args,**kwargs)
+
+class recipeModel(models.Model):
+    name = models.CharField(max_length=60)
+    ingredients = models.JSONField()
+    equipment = models.JSONField()
+    serving_size = models.IntegerField(
+        null=True,
+        blank=True
+    )
+    time = models.CharField(max_length=20)
+    meal_type = models.CharField(
+        max_length=60,
+        choices=meal_type_choices
+    )
+    directions = models.TextField(max_length=20000)
+    special_notes = models.CharField(
+        max_length=2000,
+        null=True,
+        blank=True
+    )
+    healthy_choice = models.CharField(
+        max_length=7,
+        choices=yes_no_choice
+    )
+    def __str__(self):
+        return str(self.id) + " - " + str(self.name)

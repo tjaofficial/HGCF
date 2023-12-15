@@ -1,25 +1,6 @@
 {% extends "mainLayout.html" %}{% load static %}{% block list%}
-<style>
-    .mainCont{
-        background-color: white;
-        width: 33rem;
-        border-radius: 25px;
-        padding: 31px 0px;
-    }
-    .mainCont a{
-        position: relative;
-        left: -14rem;
-        top: 0rem;
-    }
-    .mainCont svg{
-        width: 30px;
-    }
-    .eachLog{
-        margin-bottom: 20px;
-        background-color: lightgrey;
-        padding: 26px 0px;
-    }
-</style>
+<link href="{% static 'style/treeLog.css' %}" rel="stylesheet" />
+{% include "components/spacer.html" %}
 <div class='mainCont'>
     <a href="{% url 'treeData' locationID areaID treeID %}">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">

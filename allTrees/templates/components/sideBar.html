@@ -1,0 +1,18 @@
+{% load static %}
+<link href="{% static 'style/sideBar.css' %}" rel="stylesheet" />
+<div class="play">
+    <div class="headerSpacer"></div>
+    <ul>
+        <li>YouTube API</li>
+        <li>
+            <a href="{% url 'addLocation' %}">Trees</a>
+        </li>
+        <li>
+            <a href="{% url 'recipeForm' %}">Recipies</a>
+        </li>
+        <li>
+            <a href="{% url 'weatherDash' %}">Weather</a>
+        </li>
+        <li>Add News</li>
+    </ul>
+</div>

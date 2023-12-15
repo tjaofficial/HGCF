@@ -1,20 +1,6 @@
 {% extends "mainLayout.html" %}{% load static %}{% block list%}
-<style>
-    .mainCont{
-        background-color: white;
-        width: 33rem;
-        border-radius: 25px;
-        padding: 31px 0px;
-    }
-    .mainCont #backButton{
-        position: relative;
-        left: -14rem;
-        top: 0rem;
-    }
-    .mainCont svg{
-        width: 30px;
-    }
-</style>
+<link href="{% static 'style/addLog.css' %}" rel="stylesheet" />
+{% include "components/spacer.html" %}
 <div class='mainCont'>
     <a id='backButton' href="{% url 'treeData' locationID areaID treeID %}">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -24,7 +10,7 @@
     <form action='' method='POST'>
         {% csrf_token %}
         {% for input in logForm %}
-            {{input.label}}: {{input}}<br><br>
+            {{input.label}}<br>{{input}}<br>
         {% endfor %}
         <input class='primButton' value='save' type='submit' />
     </form>

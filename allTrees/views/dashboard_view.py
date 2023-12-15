@@ -9,6 +9,10 @@ def dashboard_view(request):
     treeData = individualTrees_model.objects.all()
     noFooter = True
     smallHeader = True
+    sideBar = True
     return render(request, 'dashboard.html', {
-        'teeData': treeData, 'noFooter': noFooter, 'smallHeader': smallHeader
+        'teeData': treeData, 
+        'noFooter': noFooter, 
+        'smallHeader': smallHeader,
+        'sideBar': sideBar
     })

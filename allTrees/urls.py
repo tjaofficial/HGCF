@@ -13,4 +13,10 @@ urlpatterns = [
     path("treeData/<str:locationID2>/<str:areaID2>/<str:treeID2>", views.treeData2_view, name="treeData"),
     path("treeLog/<str:locationID2>/<str:areaID2>/<str:treeID2>/<str:selector>", views.treeLog_view, name="treeLog"),
     path("addLog/<str:locationID2>/<str:areaID2>/<str:treeID2>", views.addLog2_view, name="addLog"),
+    
+    #Joyces Kitchen URLs
+    path("recipeForm", views.recipeForm_view, name="recipeForm"),
+    
+    #Environmental URLs
+    path("weatherDash", views.weather_dashboard_view, name="weatherDash"),
 ]

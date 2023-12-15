@@ -8,6 +8,9 @@ lock = login_required(login_url='Login')
 
 @lock
 def addArea_view(request, locationID2):
+    noFooter = True
+    smallHeader = True
+    sideBar = True
     addForm = areaTree_form
     areasData = areaTree_model.objects.filter(locationID=locationID2)
     location = locationTree_model.objects.get(locationID=locationID2)
@@ -22,5 +25,12 @@ def addArea_view(request, locationID2):
             formData.save()
             return redirect('addArea', locationID2)
     return render(request, 'addArea.html', {
-        'newID': newID, 'location': location, 'addForm': addForm, 'areasData': areasData, 'locationID': locationID2
+        'newID': newID, 
+        'location': location, 
+        'areasData': areasData, 
+        'locationID': locationID2,
+        'smallHeader': smallHeader,
+        'noFooter': noFooter,
+        'addForm': addForm,
+        'sideBar': sideBar
     })

@@ -77,3 +77,19 @@ class CreateUserForm(UserCreationForm):
             'first_name': forms.TextInput(attrs={'placeholder': 'First Name'}),
             'last_name': forms.TextInput(attrs={'placeholder': 'Last Name'}),
         }
+        
+class recipeForm(ModelForm):
+    class Meta:
+        model = recipeModel
+        fields = ("__all__")
+        widgets = {
+            'name': forms.TextInput(),
+            'ingredients': forms.TextInput(),
+            'equipment': forms.TextInput(),
+            'serving_size': forms.NumberInput(),
+            'time': forms.TextInput(),
+            'meal_type': forms.Select(),
+            'directions': forms.Textarea(),
+            'special_notes': forms.TextInput(),
+            'healthy_choice': forms.Select(),
+        }
