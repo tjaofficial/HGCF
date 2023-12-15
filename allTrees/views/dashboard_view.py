@@ -7,7 +7,8 @@ lock = login_required(login_url='Login')
 @lock
 def dashboard_view(request):
     treeData = individualTrees_model.objects.all()
-    
+    noFooter = True
+    smallHeader = True
     return render(request, 'dashboard.html', {
-        'teeData': treeData
+        'teeData': treeData, 'noFooter': noFooter, 'smallHeader': smallHeader
     })

@@ -7,6 +7,7 @@ body {
 	margin: 0;
 	min-height: 100vh;
     min-width: 570px;
+    background: #8e4717;
 }
 .primButton{
     background-color: #ffa9a9;
@@ -30,7 +31,7 @@ input{
     text-align: center;
 }
 .insideBody{
-    background: #8e4618;
+    /* background: #8e4618; */
 }
 footer {
     background-color: #1d0e04;
