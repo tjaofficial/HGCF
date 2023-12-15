@@ -83,11 +83,11 @@ class recipeForm(ModelForm):
         model = recipeModel
         fields = ("__all__")
         widgets = {
-            'name': forms.TextInput(),
+            'name': forms.TextInput(attrs={'placeholder':'recipe name'}),
             'ingredients': forms.TextInput(),
             'equipment': forms.TextInput(),
-            'serving_size': forms.NumberInput(),
-            'time': forms.TextInput(),
+            'serving_size': forms.NumberInput(attrs={'placeholder':'# of people served'}),
+            'time': forms.TextInput(attrs={'placeholder':'HH:MM'}),
             'meal_type': forms.Select(),
             'directions': forms.Textarea(),
             'special_notes': forms.TextInput(),

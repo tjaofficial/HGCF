@@ -21,7 +21,7 @@
 <div id="areaID" style="display:none;" data-areaID="{{areaID}}"></div>
 <div id='mainCont'>
     <div class="headerSpacer"></div>
-    {% include "components/treeSideBar.html" %}
+    {% include "components/secondarySideBars/secondarySideBar.html" with selector="tree" %}
     <div class="containerBorder">
         {% include "components/backArrow.html" with destination="area" %}
         <div class="grid-container">

@@ -11,7 +11,7 @@ def recipeForm_view(request):
     smallHeader = True
     sideBar = True
     form = recipeForm
-    
+    modelData = recipeModel.objects.all()
     if request.method == "POST":
         dataCopy = request.POST.copy()
         iList = {}
@@ -37,5 +37,6 @@ def recipeForm_view(request):
         'smallHeader': smallHeader,
         'noFooter': noFooter,
         'sideBar': sideBar,
-        'form': form
+        'form': form,
+        'modelData': modelData
     })

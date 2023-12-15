@@ -5,7 +5,7 @@
 <script defer src="{% static 'script/hideAddContainer.js' %}"></script>
 <div id='mainCont'>
     <div class="headerSpacer"></div>
-    {% include "components/areaSideBar.html" %}
+    {% include "components/secondarySideBars/secondarySideBar.html" with selector="area" %}
     <a id="addLink" href=# onclick="showAddElem(areaForm)">
         <h3>Add Area</h3>
     </a>
