@@ -1,63 +1,71 @@
 {% extends "mainLayout.html" %}{% load static %}{% block list%}
 <link href="{% static 'style/pageSetup.css' %}" rel="stylesheet" />
 <link href="{% static 'style/homePage.css' %}" rel="stylesheet" />
-<!-- <div class='mainCont'>
-    <div class="">
-        <div class="cropped">
-            <img id='bannerPhoto' src="{% static 'images/HGCFsign.jpg' %}"/>
-        </div>
-    </div>
-    <div class="description">
-        <h2>Welcome to Heavens Gates Cherry Farm</h2>
-        <p>Hello there Cherry Lovers! Welmcomsonf kdfkdj ldjfkjls  fkjksjfjfjs fksdfjo fjsjof ieufn n ifj kkjsrnf osfj sf./ sfoskfnikjsfjjisj isrfji si sifj isjf  iisjf sifj sij sisjsdf  ijsf.</p>
-    </div>
-    <div class="">
-
-    </div>
-</div> -->
 <script defer src="{% static 'script/slideshow.js' %}"></script>
-  {% comment %} <header>
-    <h1>Welcome to Heaven's Gates Cherry Farm</h1>
-  </header> {% endcomment %}
+<div class="slideshow-container">
+    <div class="mySlides fade">
+      <div class="crop">
+          {% comment %} <img src="{% static 'images/HGCFsign.jpg' %}" alt="Slide 1"> {% endcomment %}
+      </div>
+    </div>
 
-  <div class="slideshow-container">
-      <div class="mySlides fade">
-        <div class="crop">
-            <img src="{% static 'images/HGCFsign.jpg' %}" alt="Slide 1">
-        </div>
+    <div class="mySlides fade">
+      <div class="crop">
+          {% comment %} <img src="{% static 'images/HGCFFlower.jpg' %}" alt="Slide 2"> {% endcomment %}
       </div>
-  
-      <div class="mySlides fade">
-        <div class="crop">
-            <img src="{% static 'images/HGCFFlower.jpg' %}" alt="Slide 2">
-        </div>
+    </div>
+
+    <div class="mySlides fade">
+      <div class="crop">
+          {% comment %} <img src="{% static 'images/HGCFsign (2).jpg' %}" alt="Slide 3"> {% endcomment %}
       </div>
-  
-      <div class="mySlides fade">
-        <div class="crop">
-            <img src="{% static 'images/HGCFsign (2).jpg' %}" alt="Slide 3">
-        </div>
-      </div>
-  
-      <!-- Add more slides as needed -->
-  
-      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-      <a class="next" onclick="plusSlides(1)">&#10095;</a>
-  </div>
-  <main>
-    
+    </div>
+
+    <!-- Add more slides as needed -->
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<main>
     <section id="home">
-      <h2>Home</h2>
-      <p>Discover the goodness of fresh, organic cherries and more at Heaven's Gates Cherry Farm.</p>
+        <div class="triFoldCont">
+            <div class="promo1">
+                <div class="textCont">
+                    <div class="promoHeader">U-Pick Farm</div>
+                    <div class="promoHeaderLittle">We Grow, U-Pick!</div>
+                    <hr>
+                    <div class="promoLink">What's In Season</div>
+                </div>
+            </div>
+            <div class="promo2">
+                <div class="textCont2">
+                    <div class="promoHeader2">Fresh Farm Products</div>
+                    <div class="textCont3">
+                          A beautiful 5 acre “U-Pick"
+                          <span>organic-practiced</span> berry, fruit and vegetable 
+                          farm located in the middle of the 
+                          Huron-Manistee National Forests in
+                          scenic east central Michigan.
+                    </div>
+                    <div class="promoLink2">
+                      <a class="wood-button" href="#">
+                        Directions
+                      </a>
+                    </div>
+                </div>
+            </div>
+            <div class="promo3">
+                <div class="textCont">
+                    <div class="promoHeader" style="line-height: 1.2;">Joyce's Kitchen</div>
+                    <div class="promoHeaderLittle">Lets Get Cooking!</div>
+                    <hr>
+                    <div class="promoLink">Learn New Recipes</div>
+                </div>
+            </div>
+        </div>
     </section>
+</main>
 
-    <section id="about">
-      <h2>About Us</h2>
-      <p>Welcome to Heaven's Gates Cherry Farm, where we cultivate the finest cherries and a variety of other fruits.</p>
-      <!-- Add more about us content as needed -->
-    </section>
-  </main>
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 
 {% endblock %}

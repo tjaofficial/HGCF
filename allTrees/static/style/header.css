@@ -67,7 +67,8 @@
 	margin:0px;
 }
 .logo img{
-	width: 330px;
+	width: 37%;
+	max-width: 330px;
 }
 #header{
 	background-image: url('../images/wood_background.jpg');

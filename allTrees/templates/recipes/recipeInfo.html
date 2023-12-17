@@ -1,0 +1,13 @@
+{% extends "mainLayout.html" %}{% load static %}{% block list %}
+<link href="{% static 'style/pageSetup.css' %}" rel="stylesheet" />
+<link href="{% static 'style/backArrow.css' %}" rel="stylesheet" />
+<link href="{% static 'style/recipeInfo.css' %}" rel="stylesheet" />
+{% include "components/spacer.html" %}
+<div class='mainCont'>
+    {% include "components/secondarySideBars/secondarySideBar.html" with selector="recipe" %}
+    {% include "components/backArrow.html" with destination="dashboard" %}
+    <div class="recipeCont">
+
+    </div>
+
+{% endblock %}
