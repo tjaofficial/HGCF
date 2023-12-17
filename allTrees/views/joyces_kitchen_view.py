@@ -39,9 +39,6 @@ def recipeForm_view(request):
             data.save()
         else:
             print(data.errors)
-                
-        
-    
     return render(request, "recipes/recipeForm.html", {
         'smallHeader': smallHeader,
         'noFooter': noFooter,
@@ -50,13 +47,25 @@ def recipeForm_view(request):
         'modelData': modelData
     })
     
-def recipeForm_view(request):
+def recipeInfo_view(request, recipe):
     noFooter = True
     smallHeader = True
     sideBar = True
-    
-    return render(request, "recipes/recipeForm.html", {
+    modelData = recipeModel.objects.all()
+    recipeData = modelData.filter(name=recipe)
+    if recipeData.exists():
+        recipeData = recipeData[0]
+    directionSplit = recipeData.directions.splitlines()
+    for direct in directionSplit:
+        if direct == '':
+            directionSplit.remove('')
+            
+    print(directionSplit)
+    return render(request, "recipes/recipeInfo.html", {
         'smallHeader': smallHeader,
         'noFooter': noFooter,
         'sideBar': sideBar,
+        'modelData': modelData,
+        'recipeData': recipeData,
+        'directionSplit': directionSplit
 })

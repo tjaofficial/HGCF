@@ -1,0 +1,12 @@
+.recipeCont{
+    margin-left: 160px;
+    padding: 18px;
+}
+.innerRecipeCont{
+    background: beige;
+    width: 32rem;
+    border-radius: 22px;
+    padding: 1px 26px;
+    margin: auto;
+    padding-bottom: 25px;
+}

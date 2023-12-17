@@ -16,6 +16,7 @@ urlpatterns = [
     
     #Joyces Kitchen URLs
     path("recipeForm", views.recipeForm_view, name="recipeForm"),
+    path("recipes/<str:recipe>", views.recipeInfo_view, name="recipeInfo"),
     
     #Environmental URLs
     path("weatherDash", views.weather_dashboard_view, name="weatherDash"),

@@ -7,7 +7,42 @@
     {% include "components/secondarySideBars/secondarySideBar.html" with selector="recipe" %}
     {% include "components/backArrow.html" with destination="dashboard" %}
     <div class="recipeCont">
-
+        <div class="innerRecipeCont">
+            <h2>{{recipeData.name|title}}</h2>
+            <div>
+                Serves {{recipeData.serving_size}} people<br>
+                Amount of Time to Prepare: {{recipeData.time}}<br>
+                Perfect Meal for {{recipeData.meal_type}}<br>
+                Healthy Choice: {{recipeData.healthy_choice}}
+            </div><br>
+            <div>
+                Ingredients:
+                <ul>
+                {% for key, value in recipeData.ingredients.items %}
+                    <li>{{key}}) {{value.qty}} - {{value.name}} {{value.notes}}</li>
+                {% endfor %}
+                </ul>
+            </div>
+            <div>
+                Equipment:
+                <ul>
+                {% for key, value in recipeData.equipment.items %}
+                    <li>{{key}}) {{value.qty}} - {{value.name}} {{value.notes}}</li>
+                {% endfor %}
+                </ul>
+            </div>
+            <div>
+                Directions:<br>
+                <ul>
+                {% for direct in directionSplit %}
+                    <li>{{ forloop.counter }}) {{direct}}</li>
+                {% endfor %}
+                </ul>
+            </div>
+            <div>
+                Special Notes:
+            </div>
+        </div>
     </div>
 
 {% endblock %}
