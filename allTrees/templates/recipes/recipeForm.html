@@ -12,99 +12,30 @@
             {% csrf_token %}
             {{ form.name.label}}<br>
             {{ form.name }}<br><br>
+            {{ form.description.label}}<br>
+            {{ form.description }}<br><br>
+            {{ form.cuisine.label}}<br>
+            {{ form.cuisine }}<br><br>
+            {{ form.freezer_friendly.label}}<br>
+            {{ form.freezer_friendly }}<br><br>
+            {{ form.serving_size.label}}<br>
+            {{ form.serving_size }}<br><br>
+            Time to Prepare<br>
+            <div style="display:flex; justify-content: center;">
+                <div style="margin-right:30px">Prep-Time</div>
+                <div style="margin-right:30px">Cook-Time</div>
+                <div>Total-Time</div>
+            </div>
+            <input style="width:100px;" placeholder="HH:MM" name="prep-time" id="prep-time" type="text">
+            <input style="width:100px;" placeholder="HH:MM" name="cook-time" id="cook-time" type="text">
+            <input style="width:100px;" placeholder="HH:MM" name="total-time" id="total-time" type="text"><br><br>
+
+            {{ form.meal_type.label}}<br>
+            {{ form.meal_type }}<br><br>
+            
             {{ form.ingredients.label}}<br>
-            Number of Ingredients(1-15):<br>
-            <input id="iAmount" oninput="showInputsI()" type="number" name="numberOfIngredients" style="width:35px;" placeholder="0">
-            <div id="ingredientCont">
-                <div id="i1" style="display:none;">
-                    1) <input id="iName1" type="text" name="iName1" placeholder="name of ingredient" style="width:120px;">
-                    <input id="iQty1" type="number" name="iQty1" placeholder="qty" style="width:35px;">
-                    <input id="iNotes1" type="text" name="iNotes1" placeholder="notes" style="width:150px;"><br>
-                </div>
-                <div id="i2" style="display:none;">
-                    2) <input id="iName2" type="text" name="iName2" placeholder="name of ingredient" style="width:120px;">
-                    <input id="iQty2" type="number" name="iQty2" placeholder="qty" style="width:35px;">
-                    <input id="iNotes2" type="text" name="iNotes2" placeholder="notes" style="width:150px;"><br>
-                </div>
-
-                <div id="i3" style="display:none;">
-                    3) <input id="iName3" type="text" name="iName3" placeholder="name of ingredient" style="width:120px;">
-                    <input id="iQty3" type="number" name="iQty3" placeholder="qty" style="width:35px;">
-                    <input id="iNotes3" type="text" name="iNotes3" placeholder="notes" style="width:150px;"><br>
-                </div>
-
-                <div id="i4" style="display:none;">
-                    4) <input id="iName4" type="text" name="iName4" placeholder="name of ingredient" style="width:120px;">
-                    <input id="iQty4" type="number" name="iQty4" placeholder="qty" style="width:35px;">
-                    <input id="iNotes4" type="text" name="iNotes4" placeholder="notes" style="width:150px;"><br>
-                </div>
-
-                <div id="i5" style="display:none;">
-                    5) <input id="iName5" type="text" name="iName5" placeholder="name of ingredient" style="width:120px;">
-                    <input id="iQty5" type="number" name="iQty5" placeholder="qty" style="width:35px;">
-                    <input id="iNotes5" type="text" name="iNotes5" placeholder="notes" style="width:150px;"><br>
-                </div>
-
-                <div id="i6" style="display:none;">
-                    6) <input id="iName6" type="text" name="iName6" placeholder="name of ingredient" style="width:120px;">
-                    <input id="iQty6" type="number" name="iQty6" placeholder="qty" style="width:35px;">
-                    <input id="iNotes6" type="text" name="iNotes6" placeholder="notes" style="width:150px;"><br>
-                </div>
-
-                <div id="i7" style="display:none;">
-                    7) <input id="iName7" type="text" name="iName7" placeholder="name of ingredient" style="width:120px;">
-                    <input id="iQty7" type="number" name="iQty7" placeholder="qty" style="width:35px;">
-                    <input id="iNotes7" type="text" name="iNotes7" placeholder="notes" style="width:150px;"><br>
-                </div>
-
-                <div id="i8" style="display:none;">
-                    8) <input id="iName8" type="text" name="iName8" placeholder="name of ingredient" style="width:120px;">
-                    <input id="iQty8" type="number" name="iQty8" placeholder="qty" style="width:35px;">
-                    <input id="iNotes8" type="text" name="iNotes8" placeholder="notes" style="width:150px;"><br>
-                </div>
-
-                <div id="i9" style="display:none;">
-                    9) <input id="iName9" type="text" name="iName9" placeholder="name of ingredient" style="width:120px;">
-                    <input id="iQty9" type="number" name="iQty9" placeholder="qty" style="width:35px;">
-                    <input id="iNotes9" type="text" name="iNotes9" placeholder="notes" style="width:150px;"><br>
-                </div>
-
-                <div id="i10" style="display:none;">
-                    10) <input id="iName10" type="text" name="iName10" placeholder="name of ingredient" style="width:120px;">
-                    <input id="iQty10" type="number" name="iQty10" placeholder="qty" style="width:35px;">
-                    <input id="iNotes10" type="text" name="iNotes10" placeholder="notes" style="width:150px;"><br>
-                </div>
-
-                <div id="i11" style="display:none;">
-                    11) <input id="iName11" type="text" name="iName11" placeholder="name of ingredient" style="width:120px;">
-                    <input id="iQty11" type="number" name="iQty11" placeholder="qty" style="width:35px;">
-                    <input id="iNotes11" type="text" name="iNotes11" placeholder="notes" style="width:150px;"><br>
-                </div>
-
-                <div id="i12" style="display:none;">
-                    12) <input id="iName12" type="text" name="iName12" placeholder="name of ingredient" style="width:120px;">
-                    <input id="iQty12" type="number" name="iQty12" placeholder="qty" style="width:35px;">
-                    <input id="iNotes12" type="text" name="iNotes12" placeholder="notes" style="width:150px;"><br>
-                </div>
-
-                <div id="i13" style="display:none;">
-                    13) <input id="iName13" type="text" name="iName13" placeholder="name of ingredient" style="width:120px;">
-                    <input id="iQty13" type="number" name="iQty13" placeholder="qty" style="width:35px;">
-                    <input id="iNotes13" type="text" name="iNotes13" placeholder="notes" style="width:150px;"><br>
-                </div>
-
-                <div id="i14" style="display:none;">
-                    14) <input id="iName14" type="text" name="iName14" placeholder="name of ingredient" style="width:120px;">
-                    <input id="iQty14" type="number" name="iQty14" placeholder="qty" style="width:35px;">
-                    <input id="iNotes14" type="text" name="iNotes14" placeholder="notes" style="width:150px;"><br>
-                </div>
-
-                <div id="i15" style="display:none;">
-                    15) <input id="iName15" type="text" name="iName15" placeholder="name of ingredient" style="width:120px;">
-                    <input id="iQty15" type="number" name="iQty15" placeholder="qty" style="width:35px;">
-                    <input id="iNotes15" type="text" name="iNotes15" placeholder="notes" style="width:150px;"><br>
-                </div>
-            </div><br>
+            Number of Elements(1-5): <input id="iElements" oninput="addElement(this)" type="number" name="numberOfElements" style="width:35px;" placeholder="0"><br>
+            <div id="elementsCont"></div><br>
             {{ form.equipment.label}}<br>
             Pieces of Equipment(1-15):<br>
             <input id="eAmount" oninput="showInputsE()" type="number" name="numberOfEquipment" style="width:35px;" placeholder="0">
@@ -199,14 +130,11 @@
                 </div>
             </div><br>
 
-            {{ form.serving_size.label}}<br>
-            {{ form.serving_size }}<br><br>
-            Time to Prepare<br>
-            {{ form.time }}<br><br>
-            {{ form.meal_type.label}}<br>
-            {{ form.meal_type }}<br><br>
+            
             {{ form.directions.label}}<br>
-            {{ form.directions }}<br>Separate each direction by pressing "Enter" twice.<br><br>
+            {{ form.directions }}<br>
+            Create Title by adding a "@" at the start of the line.<br>
+            Separate each direction by pressing "Enter" twice.<br><br>
             {{ form.special_notes.label}}<br>
             {{ form.special_notes }}<br><br>
             {{ form.healthy_choice.label}}<br>

@@ -13,17 +13,28 @@ def recipeForm_view(request):
     form = recipeForm
     modelData = recipeModel.objects.all()
     if request.method == "POST":
+        totalElements = int(request.POST['numberOfElements'])
         dataCopy = request.POST.copy()
         print(dataCopy)
         iList = {}
-        for x in range(1,16):
-            if 'iName'+ str(x) in dataCopy:
-                iList[str(x)] = {
-                    'name': dataCopy['iName'+ str(x)],
-                    'qty': dataCopy['iQty'+ str(x)],
-                    'notes': dataCopy['iNotes'+ str(x)]
+        for element in range(1,totalElements+1):
+            elementDict = {}
+            totalIngredients = int(request.POST['totalIngredients'+str(element)])
+            if 'elementName' + str(element) in dataCopy:
+                for ingredient in range(1,totalIngredients+1):
+                    if 'iName-El'+str(element)+'-i'+str(ingredient) in dataCopy:
+                        elementDict[ingredient] = {
+                            'name': dataCopy['iName-El'+str(element)+'-i'+str(ingredient)],
+                            'quantity': dataCopy['iQty-El'+str(element)+'-i'+str(ingredient)],
+                            'measurement': dataCopy['iMeasurement-El'+str(element)+'-i'+str(ingredient)],
+                            'notes': dataCopy['iNotes-El'+str(element)+'-i'+str(ingredient)]
+                        }
+                iList[element] = {
+                    'name': dataCopy['elementName' + str(element)],
+                    'eIngredients': elementDict
                 }
         dataCopy['ingredients'] = iList
+        
         eList = {}
         for x in range(1,16):
             if 'eName'+ str(x) in dataCopy:
@@ -33,6 +44,16 @@ def recipeForm_view(request):
                     'notes': dataCopy['eNotes'+ str(x)]
                 }
         dataCopy['equipment'] = eList
+        
+        tPrep = dataCopy['prep-time']
+        tCook = dataCopy['cook-time']
+        tTotal = dataCopy['total-time']
+        dataCopy['time'] = {
+            'prep_time': tPrep,
+            'cook_time': tCook,
+            'total_time': tTotal
+        }
+        
         data = recipeForm(dataCopy)
         if data.is_valid():
             print('saved')
@@ -55,17 +76,27 @@ def recipeInfo_view(request, recipe):
     recipeData = modelData.filter(name=recipe)
     if recipeData.exists():
         recipeData = recipeData[0]
-    directionSplit = recipeData.directions.splitlines()
+    directionSplit = recipeData.directions.split("\r\n\r\n")
+    key = 1
+    elementLines = []
+    newDirectionList = []
+    count = 1
     for direct in directionSplit:
-        if direct == '':
-            directionSplit.remove('')
+        if direct[0] == "@":
+            count = 1
+            elementLines.append(key)
+            newDirectionList.append(direct[1:])
+        else:
+            newDirectionList.append(str(count) + ") " + direct)
+        key += 1
+        count += 1
             
-    print(directionSplit)
     return render(request, "recipes/recipeInfo.html", {
         'smallHeader': smallHeader,
         'noFooter': noFooter,
         'sideBar': sideBar,
         'modelData': modelData,
         'recipeData': recipeData,
-        'directionSplit': directionSplit
+        'directionSplit': newDirectionList,
+        'elementLines': elementLines
 })

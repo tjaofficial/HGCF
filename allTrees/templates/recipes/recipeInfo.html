@@ -10,37 +10,50 @@
         <div class="innerRecipeCont">
             <h2>{{recipeData.name|title}}</h2>
             <div>
-                Serves {{recipeData.serving_size}} people<br>
-                Amount of Time to Prepare: {{recipeData.time}}<br>
-                Perfect Meal for {{recipeData.meal_type}}<br>
-                Healthy Choice: {{recipeData.healthy_choice}}
+                <div class="headerInputs"><h4>Serves:</h4>&nbsp;&nbsp;{{recipeData.serving_size}} people</div>
+                <div class="headerInputs"><h4>Description:</h4>&nbsp;&nbsp;{{recipeData.description}}</div>
+                <div class="headerInputs"><h4>Cuisine:</h4>&nbsp;&nbsp;{{recipeData.cuisine|title}}</div>
+                <div class="headerInputs"><h4>Freezer Friendly:</h4>&nbsp;&nbsp;{{recipeData.freezer_friendly}}</div>
+                <div class="headerInputs"><h4>Course:</h4>&nbsp;&nbsp;{{recipeData.meal_type|title}}</div>
+                <div class="grid-container">
+                    <div class="grid-item">Prep-Time</div>
+                    <div class="grid-item">Cook-Time</div>
+                    <div class="grid-item">Total-Time</div>  
+                    <div class="grid-item">{{recipeData.time.prep_time}}</div>
+                    <div class="grid-item">{{recipeData.time.cook_time}}</div>
+                    <div class="grid-item">{{recipeData.time.total_time}}</div> 
+                </div>
             </div><br>
             <div>
-                Ingredients:
-                <ul>
-                {% for key, value in recipeData.ingredients.items %}
-                    <li>{{key}}) {{value.qty}} - {{value.name}} {{value.notes}}</li>
+                <h4>Ingredients:</h4>
+                {% for key1, element in recipeData.ingredients.items %}
+                    <h3 class="elementIndent">{{element.name}}</h3>
+                    <ul class="ingredientIndent">
+                    {% for key2, ingredient in element.eIngredients.items %}
+                        <li>{{ingredient.quantity}} {{ingredient.measurement}} - {{ingredient.name}} {% if ingredient.notes != "-" %}({{ingredient.notes}}){% endif %}</li>
+                    {% endfor %}
+                    </ul>
                 {% endfor %}
                 </ul>
             </div>
             <div>
-                Equipment:
-                <ul>
+                <h4>Equipment:</h4>
                 {% for key, value in recipeData.equipment.items %}
-                    <li>{{key}}) {{value.qty}} - {{value.name}} {{value.notes}}</li>
+                    <div class="elementIndent">{{value.qty}} - {{value.name|title}} {% if value.notes != "-" %}({{value.notes}}){% endif %}</div>
                 {% endfor %}
-                </ul>
             </div>
             <div>
-                Directions:<br>
-                <ul>
+                <h4>Directions:</h4>
                 {% for direct in directionSplit %}
-                    <li>{{ forloop.counter }}) {{direct}}</li>
+                    {% if forloop.counter in elementLines %}
+                        <h3 class="elementIndent">{{direct}}</h3>
+                    {% else %}
+                        <div class="ingredientIndent">{{direct}}</div>
+                    {% endif %}
                 {% endfor %}
-                </ul>
             </div>
             <div>
-                Special Notes:
+                <h4>Special Notes:</h4>&nbsp;&nbsp;{{recipeData.special_notes}}
             </div>
         </div>
     </div>
