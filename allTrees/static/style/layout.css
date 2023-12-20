@@ -1,3 +1,7 @@
+html{
+    background: black;
+    height: 100%;
+}
 * {
 	box-sizing: border-box;
 }
@@ -5,7 +9,7 @@ body {
 	font-family: 'Montserrat', sans-serif;
 	line-height: 1.6;
 	margin: 0;
-	min-height: 100vh;
+	height: 100%;
     min-width: 570px;
     background: #7b380b;
     box-shadow: inset 0px 0px 171px 87px black;
@@ -47,3 +51,6 @@ footer p{
 /* .bigHeaderSpacer{
     height: 381px;
 } */
+.secondarySideBarGap{
+    margin-left: 160px;
+}

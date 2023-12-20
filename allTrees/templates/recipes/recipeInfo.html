@@ -2,7 +2,7 @@
 <link href="{% static 'style/pageSetup.css' %}" rel="stylesheet" />
 <link href="{% static 'style/backArrow.css' %}" rel="stylesheet" />
 <link href="{% static 'style/recipeInfo.css' %}" rel="stylesheet" />
-{% include "components/spacer.html" %}
+{% include "components/spacer.html" with headerSpace="small" %}
 <div class='mainCont'>
     {% include "components/secondarySideBars/secondarySideBar.html" with selector="recipe" %}
     {% include "components/backArrow.html" with destination="dashboard" %}

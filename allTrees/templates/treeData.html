@@ -3,7 +3,7 @@
 <link href="{% static 'style/backArrow.css' %}" rel="stylesheet" />
 <link href="{% static 'style/addCards.css' %}" rel="stylesheet" />
 <link href="{% static 'style/treeData.css' %}" rel="stylesheet" />
-{% include "components/spacer.html" %}
+{% include "components/spacer.html" with headerSpace='small' %}
 <div class='mainCont'>
     <div class="treeCont">
         {% include "components/backArrow.html" with destination="tree" %}

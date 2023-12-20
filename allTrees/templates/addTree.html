@@ -19,9 +19,9 @@
 <div id="treeList" style="display:none;" data-treeList="{{treeList}}"></div>
 <div id="locationID" style="display:none;" data-locationID="{{locationID}}"></div>
 <div id="areaID" style="display:none;" data-areaID="{{areaID}}"></div>
-<div id='mainCont'>
-    <div class="headerSpacer"></div>
-    {% include "components/secondarySideBars/secondarySideBar.html" with selector="tree" %}
+{% include "components/spacer.html" with headerSpace='small' %}
+{% include "components/secondarySideBars/secondarySideBar.html" with selector="tree" %}
+<div id='mainCont' class="secondarySideBarGap">
     <div class="containerBorder">
         {% include "components/backArrow.html" with destination="area" %}
         <div class="grid-container">

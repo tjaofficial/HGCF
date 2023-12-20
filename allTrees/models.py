@@ -117,3 +117,79 @@ class recipeModel(models.Model):
     
     def __str__(self):
         return str(self.id) + " - " + str(self.name)
+    
+class mainStore_products(models.Model):
+    inventoryChoices = (
+        ('in_stock', 'In stock'),
+        ('out_of_stock', 'Out of stock')
+    )
+    product_name = models.CharField(max_length=60)
+    ribbon = models.CharField(
+        max_length=60,
+        null = True,
+        blank = True
+    )
+    description = models.TextField(max_length=2000)
+    price = models.FloatField()
+    on_sale = models.BooleanField(
+        default=False
+    )
+    sale_percentage = models.IntegerField(
+        null = True,
+        blank = True
+    )
+    sale_price = models.FloatField(
+        null = True,
+        blank = True
+    )
+    track_inventory = models.BooleanField(
+        default=False
+    )
+    inventory_status = models.CharField(
+        max_length=75,
+        choices=inventoryChoices,
+        null = True,
+        blank = True
+    )
+    shipping_weight = models.FloatField()
+    inventory_total = models.IntegerField(
+        null = True,
+        blank = True
+    )
+    pre_order = models.BooleanField(
+        default=False
+    )
+    pre_order_message = models.CharField(
+        max_length=150,
+        null = True,
+        blank = True
+    )
+    limit = models.BooleanField(
+        default=False,
+        null = True,
+        blank = True
+    )
+    limit_number = models.IntegerField(
+        null = True,
+        blank = True
+    )
+    show_in_store = models.BooleanField(
+        default=True
+    )
+    mainImage = models.ImageField(
+        upload_to='product_images/',
+        null = True,
+        blank = True
+    )
+    def __str__(self):
+        return str(self.id) + " - " + str(self.product_name)
+    
+        
+class cart_items(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null = True,
+        blank = True)
+    product = models.ForeignKey(mainStore_products, on_delete=models.CASCADE, null = True,
+        blank = True)
+    quantity = models.PositiveIntegerField(default=1)
+    def __str__(self):
+        return f"Cart for {self.user.username} - {self.product.product_name}"

@@ -20,4 +20,9 @@ urlpatterns = [
     
     #Environmental URLs
     path("weatherDash", views.weather_dashboard_view, name="weatherDash"),
+    
+    #Stores
+    path("addProduct", views.addProduct_view, name="addProduct"),
+    path("store", views.store_view, name="store"),
 ]
+

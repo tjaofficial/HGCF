@@ -1,7 +1,7 @@
 {% extends "mainLayout.html" %}{% load static %}{% block list %}
 <link href="{% static 'style/pageSetup.css' %}" rel="stylesheet" />
 <link href="{% static 'style/backArrow.css' %}" rel="stylesheet" />
-{% include "components/spacer.html" %}
+{% include "components/spacer.html" with headerSpace='small' %}
 <div class='mainCont' style="display: flex; justify-content: center;">
     {% include "components/backArrow.html" with destination="dashboard" %}
     <div style="background: white; border-radius: 24px; padding: 25px; width: 20rem;">

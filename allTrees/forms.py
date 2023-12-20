@@ -96,3 +96,27 @@ class recipeForm(ModelForm):
             'cuisine': forms.TextInput(),
             'freezer_friendly': forms.TextInput(),
         }
+        
+class mainStore_products_form(ModelForm):
+    class Meta:
+        model = mainStore_products
+        fields = ("__all__")
+        widgets = {
+            'product_name': forms.TextInput(attrs={'class':'input', 'style':'width: 92%;', 'placeholder':'Add a product name'}),
+            'ribbon': forms.TextInput(attrs={'class':'input', 'placeholder':'e.g., New Arrival'}),
+            'description': forms.Textarea(attrs={'class':'input', 'style':'width:100%; height:unset; padding-top: 12px;overflow: scroll;padding-right: 12px;'}),
+            'price': forms.NumberInput(attrs={'min':'0', 'step':'0.01', 'class':'input', 'style':'padding-left: 22px; text-align:left; width: 5rem;'}),
+            'on_sale': forms.CheckboxInput(attrs={'required':False, 'class':'input'}),
+            'sale_percentage': forms.NumberInput(attrs={'class':'input'}),
+            'sale_price': forms.NumberInput(attrs={'class':'input'}),
+            'inventory_status': forms.Select(attrs={'required':False, 'class':'input'}),
+            'shipping_weight': forms.NumberInput(attrs={'class':'input'}),
+            'inventory_total': forms.NumberInput(attrs={'class':'input'}),
+            'pre_order': forms.CheckboxInput(attrs={'required':False, 'class':'input'}),
+            'pre_order_message': forms.TextInput(attrs={'class':'input'}),
+            'limit': forms.CheckboxInput(attrs={'required':False, 'class':'input'}),
+            'limit_number': forms.NumberInput(attrs={'class':'input'}),
+            'show_in_store': forms.CheckboxInput(attrs={'required':False, 'class':'input'}),
+            'mainImage': forms.ClearableFileInput,
+            'track_inventory': forms.CheckboxInput(attrs={'required':False, 'class':'input'}),
+        }

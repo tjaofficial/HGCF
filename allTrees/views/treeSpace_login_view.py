@@ -1,10 +1,17 @@
 from django.shortcuts import render, redirect
 from ..forms import CreateUserForm
+from ..models import locationTree_model
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 
 def login_view(request):
     login_error = {"error":False, "message":''}
+    locationData = locationTree_model.objects.all()
+    if locationData.exists():
+        goLocation = locationData[0].locationID
+    else:
+        goLocation = 'addLocation'
+        
     if request.user.is_authenticated:
         return redirect('dashboard')
     if request.method == 'POST':
@@ -14,6 +21,7 @@ def login_view(request):
 
         if user is not None:
             login(request, user)
+            
             return redirect('dashboard')
         else:
             login_error["error"] = True

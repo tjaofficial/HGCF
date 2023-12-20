@@ -1,16 +1,62 @@
 {% extends "mainLayout.html" %}{% load static %}{% block list%}
 <link href="{% static 'style/dashboard.css' %}" rel="stylesheet" />
-{% include "components/spacer.html" %}
-<div class="tileCont">
-    <div class="flexIt">
-        <div class="tiles">
-            <a href="{% url 'addLocation' %}">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-                    <path d="M384 312.7c-55.1 136.7-187.1 54-187.1 54-40.5 81.8-107.4 134.4-184.6 134.7-16.1 0-16.6-24.4 0-24.4 64.4-.3 120.5-42.7 157.2-110.1-41.1 15.9-118.6 27.9-161.6-82.2 109-44.9 159.1 11.2 178.3 45.5 9.9-24.4 17-50.9 21.6-79.7 0 0-139.7 21.9-149.5-98.1 119.1-47.9 152.6 76.7 152.6 76.7 1.6-16.7 3.3-52.6 3.3-53.4 0 0-106.3-73.7-38.1-165.2 124.6 43 61.4 162.4 61.4 162.4.5 1.6.5 23.8 0 33.4 0 0 45.2-89 136.4-57.5-4.2 134-141.9 106.4-141.9 106.4-4.4 27.4-11.2 53.4-20 77.5 0 0 83-91.8 172-20z"/>
-                </svg>
-                <h2>Trees</h2>
-            </a>
+<script defer src="{% static 'script/dashboard.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<div id="areaCols" class="hidden" data-col="{{areaData.widthByTree}}"></div>
+<div id="areaRows" class="hidden" data-row="{{areaData.lengthByTree}}"></div>
+{% include "components/spacer.html" with headerSpace='small' %}
+<div class="tileCont main">
+    <section class="card" id="tree-watering">
+        <h2>Tree Watering</h2>
+        <div class="selectCont">
+            {% comment %} <select name="location" id="location">
+                {% for location in locationData %}
+                <option value="{{location.locationID}}">{{location.city}}</option>
+                {% endfor %}
+            </select> {% endcomment %}
+            <select name="area" id="area">
+                <option value="001">Adam</option>
+                <option value="005">Eve</option>
+                <option value="001">Cain</option>
+            </select>
         </div>
+        {% comment %} <canvas id="tree-watering-chart"></canvas> {% endcomment %}
+        <div id="sensors">
+            <div class="rowSensorCont">
+                <div class="lightSensorCont">
+                    A1
+                    <div class="lightSensor"></div>
+                </div>
+                <div class="lightSensorCont">
+                    A2
+                    <div class="lightSensor lightSensorDry"></div>
+                </div>
+            </div>
+            <div class="rowSensorCont">
+                <div class="lightSensorCont">
+                    A1
+                    <div class="lightSensor"></div>
+                </div>
+                <div class="lightSensorCont">
+                    A2
+                    <div class="lightSensor lightSensorDry"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+  
+    <section class="card" id="weather">
+    <h2>Weather</h2>
+    <div id="weather-data">
+        <!-- Weather information will be displayed here -->
     </div>
+    </section>
+
+    <section class="card" id="sales">
+    <h2>Sales</h2>
+    <div id="sales-data">
+        <!-- Sales information will be displayed here -->
+    </div>
+    </section>
 </div>
 {% endblock %}
