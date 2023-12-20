@@ -8,7 +8,7 @@ lock = login_required(login_url='Login')
 def dashboard_view(request):
     treeData = individualTrees_model.objects.all()
     locationData = locationTree_model.objects.filter(locationID=1)
-    areaData = areaTree_model.objects.all()[3]
+    areaData = areaTree_model.objects.all()
     noFooter = True
     smallHeader = True
     sideBar = True
