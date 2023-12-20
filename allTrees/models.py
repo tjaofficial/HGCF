@@ -22,7 +22,7 @@ yes_no_choice = (
 
 class locationTree_model(models.Model):
     locationID = models.CharField(max_length=10)
-    name = models.CharField(max_length=10, blank=True, null=True)
+    name = models.CharField(max_length=45, blank=True, null=True)
     address = models.CharField(max_length=40)
     city = models.CharField(max_length=15)
     state = models.CharField(max_length=15)
@@ -33,7 +33,7 @@ class locationTree_model(models.Model):
 class areaTree_model(models.Model):
     areaID = models.CharField(max_length=10)
     locationID = models.ForeignKey(locationTree_model, on_delete=models.CASCADE, blank=True, null=True)
-    name = models.CharField(max_length=10, blank=True, null=True)
+    name = models.CharField(max_length=45, blank=True, null=True)
     widthByTree = models.IntegerField()
     lengthByTree = models.IntegerField()
     dateEst = models.DateField(auto_now=False, auto_now_add=False)
