@@ -12,13 +12,16 @@ def addArea_view(request, locationID2):
     smallHeader = True
     sideBar = True
     addForm = areaTree_form
-    areasData = areaTree_model.objects.filter(locationID=locationID2)
     location = locationTree_model.objects.get(locationID=locationID2)
+    areasData = areaTree_model.objects.filter(locationID=location)
     newID = selectNextID(areasData.order_by('-areaID'), 'area')
-    print(newID)
+    print(locationID2)
     if request.method == 'POST':
         print(request.POST)
-        formData = areaTree_form(request.POST)
+        newLocationID = locationTree_model.objects.get(locationID=request.POST['locationID'])
+        dataCopy = request.POST.copy()
+        dataCopy['locationID'] = newLocationID
+        formData = areaTree_form(dataCopy)
         print(formData.errors)
         if formData.is_valid():
             print('Hello')

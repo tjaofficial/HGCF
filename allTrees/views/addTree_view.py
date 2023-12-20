@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from ..models import individualTrees_model, areaTree_model, tree_qr
+from ..models import individualTrees_model, areaTree_model, tree_qr, locationTree_model
 from ..forms import individualTrees_form
 from ..utils import alphabetKey, selectNextID
 import json
@@ -13,8 +13,9 @@ def addTree_view(request, locationID2, areaID2):
     smallHeader = True
     sideBar = True
     addForm = individualTrees_form
-    areaData = areaTree_model.objects.get(areaID=areaID2, locationID=locationID2)
-    treeData = individualTrees_model.objects.filter(locationID__locationID=locationID2, areaID__areaID=areaID2)
+    location = locationTree_model.objects.get(locationID=locationID2)
+    areaData = areaTree_model.objects.get(areaID=areaID2, locationID=location)
+    treeData = individualTrees_model.objects.filter(locationID=location, areaID=areaData)
     print(treeData)
     
     treeList = []
@@ -45,6 +46,7 @@ def addTree_view(request, locationID2, areaID2):
     if request.method == "POST":
         print(request.POST)
         copyRequest = request.POST.copy()
+        copyRequest['locationID'] = location
         copyRequest['areaID'] = areaData
         copyRequest['treeID'] = str(request.POST['row']) + '-' + str(request.POST['column'])
         

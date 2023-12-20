@@ -20,7 +20,8 @@ def selectNextID(data, selector):
             newID += '0'
         newID += str(lastID)
         print(newID)
-    
+    else:
+        newID = "001"
     return newID
 
 def weatherDict(city):
