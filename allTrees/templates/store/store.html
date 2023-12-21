@@ -15,7 +15,7 @@
                 {% include "components/spacer.html" with headerSpace='none' %}
                 <div class="quick-view-content">
                     <span class="close-button" onclick="closeQuickView()">&times;</span>
-                    <img src="media/{{product.mainImage}}" alt="Product 1" style="width: 42rem;">
+                    <img src="{{MEDIA_URL}}{{product.mainImage}}" alt="Product 1" style="width: 42rem;">
                     <h2>{{product.product_name}}</h2>
                     <p>Price: ${{product.price}}</p>
                     <p>Description: {{product.description}}</p>
