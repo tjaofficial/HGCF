@@ -167,7 +167,7 @@ AWS_S3_VERITY = True
 STATICFILES_LOCATION = 'static/'
 STATIC_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com/{STATICFILES_LOCATION}/'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
+print(STATIC_URL)
 # For media files (uploads, user-generated content, etc.)
 MEDIAFILES_LOCATION = 'media/'
 MEDIA_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com/{MEDIAFILES_LOCATION}/'
