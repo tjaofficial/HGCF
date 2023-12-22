@@ -54,7 +54,7 @@ def recipeForm_view(request):
             'total_time': tTotal
         }
         
-        data = recipeForm(dataCopy)
+        data = recipeForm(dataCopy, request.FILES)
         if data.is_valid():
             print('saved')
             data.save()

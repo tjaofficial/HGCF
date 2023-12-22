@@ -9,6 +9,16 @@
     <div class="recipeCont">
         <div class="innerRecipeCont">
             <h2>{{recipeData.name|title}}</h2>
+            <div class="imagesCont">
+                {% if recipeData.image1 or recipeData.image2 or recipeData.image3 or recipeData.image4 %}
+                    {% if recipeData.image1 %}<img src="{% static '' %}{{recipeData.image1}}" style="width: 18rem;">{% endif %}
+                    {% if recipeData.image2 %}<img src="{% static '' %}{{recipeData.image2}}" style="width: 18rem;">{% endif %}
+                    {% if recipeData.image3 %}<img src="{% static '' %}{{recipeData.image3}}" style="width: 18rem;">{% endif %}
+                    {% if recipeData.image4 %}<img src="{% static '' %}{{recipeData.image4}}" style="width: 18rem;">{% endif %}
+                {% else %}
+                    No Images Uploaded
+                {% endif %}
+            </div>
             <div>
                 <div class="headerInputs"><h4>Serves:</h4>&nbsp;&nbsp;{{recipeData.serving_size}} people</div>
                 <div class="headerInputs"><h4>Description:</h4>&nbsp;&nbsp;{{recipeData.description}}</div>

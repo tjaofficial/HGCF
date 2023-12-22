@@ -114,6 +114,26 @@ class recipeModel(models.Model):
         null=True,
         blank=True
     )
+    image1 = models.ImageField(
+        upload_to='media/recipe_images/',
+        null = True,
+        blank = True
+    )
+    image2 = models.ImageField(
+        upload_to='media/recipe_images/',
+        null = True,
+        blank = True
+    )
+    image3 = models.ImageField(
+        upload_to='media/recipe_images/',
+        null = True,
+        blank = True
+    )
+    image4 = models.ImageField(
+        upload_to='media/recipe_images/',
+        null = True,
+        blank = True
+    )
     
     def __str__(self):
         return str(self.id) + " - " + str(self.name)
@@ -177,7 +197,7 @@ class mainStore_products(models.Model):
         default=True
     )
     mainImage = models.ImageField(
-        upload_to='product_images/',
+        upload_to='media/product_images/',
         null = True,
         blank = True
     )
